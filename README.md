@@ -19,3 +19,21 @@ Decorate the view with a round layer, four corners can be adjusted individually.
     [contentView.layer setRoundCorner:config];
 }
 ```
+
+## Usage For Swift
+```
+override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    let contentView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+    contentView.center = self.view.center
+    self.view.addSubview(contentView)
+    
+    var config = Configuration(rect: contentView.bounds)
+    config.cornerMask = [.MaxXMinY, .MinXMaxY, .MaxXMaxY]
+    config.cornerRadius = 20
+    config.fillColor = UIColor.red.cgColor;
+    config.strokeColor = UIColor.red.cgColor
+    contentView.layer.setRoundCorner(config: config)
+}
+```
